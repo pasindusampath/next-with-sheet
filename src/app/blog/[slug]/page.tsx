@@ -77,15 +77,15 @@ export default async function BlogPostPage(props: PostPageProps) {
     <article className="mx-auto max-w-5xl px-6 py-24">
       <header className="text-center">
         {publishedOn ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-paynes-gray-400">
             {publishedOn}
           </p>
         ) : null}
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-rich-black sm:text-5xl">
           {post.title}
         </h1>
         {post.author ? (
-          <p className="mt-4 text-sm font-medium text-slate-500">
+          <p className="mt-4 text-sm font-medium text-paynes-gray-500">
             By {post.author}
           </p>
         ) : null}
@@ -94,7 +94,7 @@ export default async function BlogPostPage(props: PostPageProps) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500"
+                className="rounded-full border border-prussian-blue-200 px-3 py-1 text-xs font-medium text-paynes-gray-500"
               >
                 {tag}
               </span>
@@ -104,9 +104,9 @@ export default async function BlogPostPage(props: PostPageProps) {
       </header>
 
       {post.outline?.length ? (
-        <aside className="mx-auto mt-12 max-w-3xl rounded-3xl border border-slate-200 bg-white px-6 py-6 text-left shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">Outline</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-slate-600">
+        <aside className="mx-auto mt-12 max-w-3xl rounded-3xl border border-prussian-blue-200 bg-eggshell-900 px-6 py-6 text-left shadow-sm">
+          <h2 className="text-lg font-semibold text-prussian-blue">Outline</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-paynes-gray-500">
             {post.outline.map((item, index) => (
               <li key={`${item}-${index}`}>{item}</li>
             ))}

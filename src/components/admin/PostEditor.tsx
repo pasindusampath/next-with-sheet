@@ -107,118 +107,118 @@ export function PostEditor({ post, mode }: PostEditorProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid gap-8 rounded-3xl border border-slate-200 bg-white px-8 py-10 shadow-sm"
+      className="grid gap-8 rounded-3xl border border-prussian-blue-200 bg-eggshell-900 px-8 py-10 shadow-sm"
     >
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Title
           <input
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
             required
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
             placeholder="AI Blogging Trends 2025"
           />
         </label>
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Slug
           <input
             type="text"
             value={slug}
             onChange={(event) => setSlug(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
             placeholder="ai-blogging-trends-2025"
           />
         </label>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Meta title
           <input
             type="text"
             value={metaTitle}
             onChange={(event) => setMetaTitle(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           />
         </label>
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Cover image URL
           <input
             type="url"
             value={coverImage}
             onChange={(event) => setCoverImage(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
             placeholder="https://"
           />
         </label>
       </div>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Meta description
         <textarea
           value={metaDescription}
           onChange={(event) => setMetaDescription(event.target.value)}
           required
           rows={3}
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           placeholder="Short summary for SEO and previews."
         />
       </label>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Outline (one item per line)
           <textarea
             value={outline}
             onChange={(event) => setOutline(event.target.value)}
             rows={8}
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
             placeholder="Intro\nTrend 1\nTrend 2"
           />
         </label>
-        <label className="text-sm font-medium text-slate-600">
+        <label className="text-sm font-medium text-prussian-blue">
           Tags (comma separated)
           <textarea
             value={tags}
             onChange={(event) => setTags(event.target.value)}
             rows={8}
-            className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
             placeholder="AI blogging, content strategy"
           />
         </label>
       </div>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Author
         <input
           type="text"
           value={author}
           onChange={(event) => setAuthor(event.target.value)}
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           placeholder="Your name"
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Content (Markdown supported)
         <textarea
           value={content}
           onChange={(event) => setContent(event.target.value)}
           required
           rows={16}
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           placeholder="## Heading"
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Status
         <select
           value={status}
           onChange={(event) => setStatus(event.target.value as SheetStatus)}
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
         >
           {statusOptions.map((option) => (
             <option key={option} value={option}>
@@ -238,7 +238,7 @@ export function PostEditor({ post, mode }: PostEditorProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex items-center justify-center rounded-full bg-prussian-blue px-6 py-3 text-sm font-semibold text-eggshell-900 transition hover:bg-prussian-blue-600 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {isSubmitting
             ? mode === "create"
@@ -251,7 +251,7 @@ export function PostEditor({ post, mode }: PostEditorProps) {
         <button
           type="button"
           onClick={() => router.back()}
-          className="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+          className="inline-flex items-center justify-center rounded-full border border-prussian-blue-200 px-6 py-3 text-sm font-semibold text-prussian-blue transition hover:border-prussian-blue hover:text-prussian-blue-600"
         >
           Cancel
         </button>

@@ -23,17 +23,17 @@ export function PostCard({ post }: PostCardProps) {
     formatDate(post.publishedAt) ?? formatDate(post.updatedAt);
 
   return (
-    <article className="flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+    <article className="flex h-full flex-col justify-between rounded-3xl border border-prussian-blue-200 bg-eggshell-900 p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
       <div>
         {publishedOn ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-paynes-gray-400">
             {publishedOn}
           </p>
         ) : null}
-        <h3 className="mt-3 text-xl font-semibold text-slate-900">
+        <h3 className="mt-3 text-xl font-semibold text-prussian-blue">
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
         </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
+        <p className="mt-3 text-sm leading-6 text-paynes-gray-500">
           {post.metaDescription}
         </p>
       </div>
@@ -42,7 +42,7 @@ export function PostCard({ post }: PostCardProps) {
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-500"
+              className="rounded-full border border-prussian-blue-200 px-3 py-1 text-xs font-medium text-paynes-gray-500"
             >
               {tag}
             </span>
@@ -50,7 +50,7 @@ export function PostCard({ post }: PostCardProps) {
         </div>
         <Link
           href={`/blog/${post.slug}`}
-          className="text-sm font-semibold text-slate-900 underline-offset-4 transition hover:underline"
+          className="text-sm font-semibold text-prussian-blue underline-offset-4 transition hover:underline"
         >
           Read
         </Link>

@@ -43,37 +43,37 @@ export function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-md flex-col gap-5 rounded-3xl border border-slate-200 bg-white px-8 py-10 shadow-lg"
+      className="flex w-full max-w-md flex-col gap-5 rounded-3xl border border-prussian-blue-200 bg-eggshell-900 px-8 py-10 shadow-lg"
     >
       <div className="text-left">
-        <h1 className="text-2xl font-semibold text-slate-900">
+        <h1 className="text-2xl font-semibold text-prussian-blue">
           Sign in to Admin
         </h1>
-        <p className="mt-2 text-sm text-slate-500">
+        <p className="mt-2 text-sm text-paynes-gray-500">
           Use the credentials stored in your Google Sheet.
         </p>
       </div>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Email
         <input
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           placeholder="admin@example.com"
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-600">
+      <label className="text-sm font-medium text-prussian-blue">
         Password
         <input
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
-          className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          className="mt-2 w-full rounded-2xl border border-prussian-blue-200 px-4 py-3 text-sm text-rich-black placeholder:text-paynes-gray-400 focus:border-prussian-blue focus:outline-none focus:ring-2 focus:ring-prussian-blue-200"
           placeholder="••••••••"
         />
       </label>
@@ -87,7 +87,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-2 inline-flex items-center justify-center rounded-full bg-prussian-blue px-6 py-3 text-sm font-semibold text-eggshell-900 transition hover:bg-prussian-blue-600 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? "Signing in..." : "Sign in"}
       </button>

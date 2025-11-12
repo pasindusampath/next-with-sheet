@@ -1,21 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f6f2e7;
+  --foreground: #0d1321;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-rich-black: #0d1321;
+  --color-rich-black-100: #030407;
+  --color-rich-black-200: #05080d;
+  --color-rich-black-300: #080b14;
+  --color-rich-black-400: #0a0f1a;
+  --color-rich-black-500: #0d1321;
+  --color-rich-black-600: #283963;
+  --color-rich-black-700: #4260a6;
+  --color-rich-black-800: #7a92ca;
+  --color-rich-black-900: #bdc9e5;
+  --color-prussian-blue: #1d2d44;
+  --color-prussian-blue-100: #06090e;
+  --color-prussian-blue-200: #0c121b;
+  --color-prussian-blue-300: #111b29;
+  --color-prussian-blue-400: #172436;
+  --color-prussian-blue-500: #1d2d44;
+  --color-prussian-blue-600: #36547e;
+  --color-prussian-blue-700: #517bb5;
+  --color-prussian-blue-800: #8ba7cd;
+  --color-prussian-blue-900: #c5d3e6;
+  --color-paynes-gray: #3e5c76;
+  --color-paynes-gray-100: #0c1217;
+  --color-paynes-gray-200: #19242f;
+  --color-paynes-gray-300: #253746;
+  --color-paynes-gray-400: #31495e;
+  --color-paynes-gray-500: #3e5c76;
+  --color-paynes-gray-600: #547da0;
+  --color-paynes-gray-700: #7d9eba;
+  --color-paynes-gray-800: #a8bed1;
+  --color-paynes-gray-900: #d4dfe8;
+  --color-silver-lake-blue: #748cab;
+  --color-silver-lake-blue-100: #151c24;
+  --color-silver-lake-blue-200: #2b3747;
+  --color-silver-lake-blue-300: #40536b;
+  --color-silver-lake-blue-400: #566e8f;
+  --color-silver-lake-blue-500: #748cab;
+  --color-silver-lake-blue-600: #8fa2bc;
+  --color-silver-lake-blue-700: #abb9cd;
+  --color-silver-lake-blue-800: #c7d1dd;
+  --color-silver-lake-blue-900: #e3e8ee;
+  --color-eggshell: #f0ebd8;
+  --color-eggshell-100: #413919;
+  --color-eggshell-200: #837133;
+  --color-eggshell-300: #bca654;
+  --color-eggshell-400: #d6c895;
+  --color-eggshell-500: #f0ebd8;
+  --color-eggshell-600: #f2eedf;
+  --color-eggshell-700: #f6f2e7;
+  --color-eggshell-800: #f9f7ef;
+  --color-eggshell-900: #fcfbf7;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #020617;
-    --foreground: #e2e8f0;
+    --background: #0d1321;
+    --foreground: #f6f2e7;
   }
 }
 
@@ -38,7 +88,7 @@ a {
 .markdown-body {
   margin: 0 auto;
   max-width: 56rem;
-  color: #1f2937;
+  color: var(--color-paynes-gray-200);
   line-height: 1.75;
   font-size: 1.0625rem;
 }
@@ -47,7 +97,7 @@ a {
 .markdown-body h2,
 .markdown-body h3,
 .markdown-body h4 {
-  color: #0f172a;
+  color: var(--color-rich-black);
   font-weight: 600;
   line-height: 1.25;
   margin-top: 2.5rem;
@@ -81,23 +131,23 @@ a {
 }
 
 .markdown-body a {
-  color: #0f172a;
+  color: var(--color-prussian-blue-600);
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 0.3em;
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid #94a3b8;
+  border-left: 4px solid var(--color-silver-lake-blue-300);
   padding-left: 1rem;
-  color: #475569;
+  color: var(--color-paynes-gray-400);
   margin: 2rem 0;
   font-style: italic;
 }
 
 .markdown-body pre {
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--color-prussian-blue);
+  color: var(--color-eggshell-900);
   padding: 1.25rem;
   border-radius: 1rem;
   overflow-x: auto;
@@ -106,7 +156,7 @@ a {
 }
 
 .markdown-body code {
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(61, 80, 112, 0.15);
   padding: 0.1rem 0.35rem;
   border-radius: 0.4rem;
   font-size: 0.95em;

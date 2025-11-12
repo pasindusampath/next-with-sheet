@@ -79,7 +79,8 @@ export async function requireAdminFromRequest(request: NextRequest) {
 }
 
 export async function getCurrentAdmin() {
-  const token = cookies().get(ADMIN_SESSION_COOKIE)?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get(ADMIN_SESSION_COOKIE)?.value;
   if (!token) return null;
   return verifyAdminToken(token);
 }

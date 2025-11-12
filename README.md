@@ -48,13 +48,13 @@ Create a spreadsheet with (at minimum) two worksheets named `Posts` and `Admins`
 
 ### `Admins` tab headers:
 
-| Column | Description |
-| ------ | ----------- |
-| `id` | UUID for the admin row. |
-| `email` | Lowercase email used to sign in. |
-| `password_hash` | Bcrypt hash (see below for generating). |
-| `role` | `admin` or `editor`. |
-| `active` | `TRUE` or `FALSE`. Inactive users cannot sign in. |
+| Column          | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `id`            | UUID for the admin row.                                  |
+| `email`         | Lowercase email used to sign in.                         |
+| `password_hash` | Bcrypt hash (see below for generating).                  |
+| `role`          | `admin` or `editor`.                                     |
+| `active`        | `TRUE` or `FALSE`. Inactive users cannot sign in.        |
 | `last_login_at` | ISO timestamp automatically updated on successful login. |
 
 > **Tip:** n8n can append JSON directly; the helpers attempt to parse arrays from either JSON or simple delimiters.
