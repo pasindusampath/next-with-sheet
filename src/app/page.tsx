@@ -34,7 +34,7 @@ export default async function Home() {
               </a>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center rounded-full border border-prussian-blue-300 px-6 py-3 text-prussian-blue transition hover:border-prussian-blue hover:text-prussian-blue-600"
+                className="inline-flex items-center justify-center rounded-full border border-prussian-blue-300 bg-white px-6 py-3 text-sm font-semibold text-prussian-blue shadow-sm transition hover:border-prussian-blue hover:bg-eggshell-900"
               >
                 See Features
               </a>

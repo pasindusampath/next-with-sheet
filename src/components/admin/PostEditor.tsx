@@ -37,6 +37,7 @@ const parseTags = (value: string) =>
 
 export function PostEditor({ post, mode }: PostEditorProps) {
   const router = useRouter();
+  const rowIndex = post?.rowIndex;
   const [title, setTitle] = useState(post?.title ?? "");
   const [slug, setSlug] = useState(post?.slug ?? "");
   const [metaTitle, setMetaTitle] = useState(post?.metaTitle ?? "");
@@ -75,6 +76,7 @@ export function PostEditor({ post, mode }: PostEditorProps) {
       status,
       coverImage: coverImage.trim() || undefined,
       author: author.trim() || undefined,
+      rowIndex,
     };
 
     try {

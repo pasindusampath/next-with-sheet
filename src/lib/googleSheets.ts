@@ -86,6 +86,12 @@ const parseBoolean = (value?: string) => {
 const serializeList = (value?: string[]) =>
   value && value.length ? JSON.stringify(value) : "";
 
+const sanitize = (value?: string) => (value ?? "").trim();
+const optional = (value?: string) => {
+  const cleaned = sanitize(value);
+  return cleaned.length ? cleaned : undefined;
+};
+
 const withDefaultStatus = (value?: string): SheetStatus => {
   const allowed: SheetStatus[] = [
     "draft",
@@ -129,20 +135,20 @@ const parseBlogPostRow = (row: string[], index: number): SheetBlogPost => {
   const record = toRecord(row, BLOG_POST_COLUMNS);
   return {
     rowIndex: index + 2, // account for header row
-    id: record.id || "",
-    slug: record.slug || "",
-    title: record.title || "",
-    metaTitle: record.meta_title || undefined,
-    metaDescription: record.meta_description || "",
+    id: sanitize(record.id),
+    slug: sanitize(record.slug),
+    title: sanitize(record.title),
+    metaTitle: optional(record.meta_title),
+    metaDescription: sanitize(record.meta_description),
     outline: parseJSONList(record.outline),
-    content: record.content || "",
+    content: sanitize(record.content),
     tags: parseJSONList(record.tags),
     status: withDefaultStatus(record.status),
-    coverImage: record.cover_image || undefined,
-    createdAt: record.created_at || undefined,
-    updatedAt: record.updated_at || undefined,
-    publishedAt: record.published_at || undefined,
-    author: record.author || undefined,
+    coverImage: optional(record.cover_image),
+    createdAt: optional(record.created_at),
+    updatedAt: optional(record.updated_at),
+    publishedAt: optional(record.published_at),
+    author: optional(record.author),
   };
 };
 
@@ -150,12 +156,12 @@ const parseAdminRow = (row: string[], index: number): SheetAdminUser => {
   const record = toRecord(row, ADMIN_COLUMNS);
   return {
     rowIndex: index + 2,
-    id: record.id || "",
-    email: record.email.toLowerCase(),
-    passwordHash: record.password_hash || "",
-    role: (record.role as SheetAdminUser["role"]) || "admin",
+    id: sanitize(record.id),
+    email: sanitize(record.email).toLowerCase(),
+    passwordHash: sanitize(record.password_hash),
+    role: (sanitize(record.role) as SheetAdminUser["role"]) || "admin",
     active: parseBoolean(record.active),
-    lastLoginAt: record.last_login_at || undefined,
+    lastLoginAt: optional(record.last_login_at),
   };
 };
 

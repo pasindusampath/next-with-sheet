@@ -19,7 +19,9 @@ export interface BlogPostPayload {
   publishedAt?: string;
 }
 
-export type BlogPostResponse = Omit<SheetBlogPost, "rowIndex">;
+export interface BlogPostResponse extends Omit<SheetBlogPost, "rowIndex"> {
+  rowIndex: number;
+}
 
 const slugify = (value: string) =>
   value
@@ -30,21 +32,30 @@ const slugify = (value: string) =>
     .replace(/-+/g, "-");
 
 const toResponse = (post: SheetBlogPost): BlogPostResponse => {
-  const { rowIndex: _rowIndex, ...rest } = post;
-  void _rowIndex;
-  return rest;
+  return { ...post };
 };
-
-export async function getAllPosts() {
-  const posts = await listBlogPosts();
-  return posts.map(toResponse);
-}
 
 const sortByPublishedDate = (a: SheetBlogPost, b: SheetBlogPost) => {
   const aDate = a.publishedAt ?? a.updatedAt ?? a.createdAt ?? "";
   const bDate = b.publishedAt ?? b.updatedAt ?? b.createdAt ?? "";
   return new Date(bDate).getTime() - new Date(aDate).getTime();
 };
+
+const ensureSlug = (slug: string | undefined, title: string) => {
+  const generated = slugify(title);
+  if (!slug || !slug.trim()) return generated;
+  return slugify(slug);
+};
+
+const normalizeArray = (value?: string[]) =>
+  Array.isArray(value) ? value.map((item) => item.trim()).filter(Boolean) : [];
+
+const nowISO = () => new Date().toISOString();
+
+export async function getAllPosts() {
+  const posts = await listBlogPosts();
+  return posts.map(toResponse);
+}
 
 export async function getPublishedPosts() {
   const posts = await listBlogPosts();
@@ -65,17 +76,6 @@ export async function getPostBySlug(slug: string) {
   const match = posts.find((post) => post.slug === slug);
   return match ? toResponse(match) : undefined;
 }
-
-const ensureSlug = (slug: string | undefined, title: string) => {
-  const generated = slugify(title);
-  if (!slug || !slug.trim()) return generated;
-  return slugify(slug);
-};
-
-const normalizeArray = (value?: string[]) =>
-  Array.isArray(value) ? value.map((item) => item.trim()).filter(Boolean) : [];
-
-const nowISO = () => new Date().toISOString();
 
 export async function createPost(payload: BlogPostPayload) {
   const id = payload.id ?? randomUUID();
@@ -105,13 +105,25 @@ export async function createPost(payload: BlogPostPayload) {
       (status === "published" ? timestamp : undefined),
   };
 
-  await saveBlogPost(record);
-  return toResponse({ ...record, rowIndex: 0 });
+  const saveResult = await saveBlogPost(record);
+  const rowIndex =
+    typeof saveResult === "number"
+      ? saveResult
+      : parseInt(
+          Array.isArray(saveResult)
+            ? saveResult.match(/\d+/)?.[0] ?? "0"
+            : `${saveResult ?? 0}`,
+          10,
+        ) || 0;
+  const saved = { ...record, rowIndex };
+  return toResponse(saved);
 }
 
 export async function updatePost(id: string, payload: Partial<BlogPostPayload>) {
   const posts = await listBlogPosts();
+  console.log("[posts:update] total posts fetched:", posts.length);
   const existing = posts.find((post) => post.id === id);
+  console.log("[posts:update] finding id:", id, "found:", Boolean(existing));
 
   if (!existing) {
     return undefined;
@@ -147,7 +159,9 @@ export async function updatePost(id: string, payload: Partial<BlogPostPayload>) 
         : existing.publishedAt,
   };
 
+  console.log("[posts:update] saving row index:", updated.rowIndex);
   await saveBlogPost(updated);
+  console.log("[posts:update] update complete");
   return toResponse(updated);
 }
 
